@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab-content{
+            display: none;
+        }
+
+        .tab-content.active{
+            display: block;
+        }
+
+        .tabs .active a{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul class="tabs">
+            <li class="active"><a href="#home">Accueil</a></li>
+            <li><a href="#mention">Mention</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+
+       <div class="tabs-content">
+            <div class="tab-content active" id="home">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam quibusdam magni, quisquam nemo ratione eligendi hic vel quo nesciunt omnis et maiores architecto? Temporibus iure provident ex inventore error laboriosam?</div>
+            <div class="tab-content" id="mention">etur adipisicing elit. Harum nobis quibusdam, amet sunt qui eius consectetur quam aut, provident, ex pariatur distinctio ad odit eos impedit dolorum veritatis modi voluptate?
+                    Nam amet, itaque sed necessitatibus ad fugiat architecto facere, asperiores molestias at inventore, quam esse. Dolorem ea ipsam molestias, quidem mollitia minima perspiciatis facere magni quaerat delectus. Magni, repellat perspiciatis.</div>
+            <div class="tab-content" id="about"> amet consectetur adipisicing elit. Blanditiis et possimus nam sequi quia est neque quas totam eius molestiae perspiciatis deleniti, asperiores voluptatem voluptatum repudiandae laudantium iste voluptas eveniet.
+                Et in quo quam quibusdam culpa nulla ipsa id nam optio quidem? Unde aperiam, eveniet culpa nihil quaerat ipsam suscipit error nesciunt. Facere minus nulla delectus iusto perferendis. Velit, ut!
+            Necessitatibus dolores porro minima quis explicabo ad in dolorum corrupti repellendus saepe, tempora illo et voluptatem sint nobis blanditiis tenetur nam ut praesentium nisi numquam consequatur velit. Delectus, modi dolor.</div>
+        </div>
+    </div>
+
+
+    <div>
+        <ul class="tabs">
+            <li class="active"><a href="#home1">Accueil</a></li>
+            <li><a href="#mention1">Mention</a></li>
+            <li><a href="#about1">About</a></li>
+        </ul>
+
+       <div class="tabs-content">
+            <div class="tab-content active" id="home1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam quibusdam magni, quisquam nemo ratione eligendi hic vel quo nesciunt omnis et maiores architecto? Temporibus iure provident ex inventore error laboriosam?</div>
+            <div class="tab-content" id="mention1">etur adipisicing elit. Harum nobis quibusdam, amet sunt qui eius consectetur quam aut, provident, ex pariatur distinctio ad odit eos impedit dolorum veritatis modi voluptate?
+                    Nam amet, itaque sed necessitatibus ad fugiat architecto facere, asperiores molestias at inventore, quam esse. Dolorem ea ipsam molestias, quidem mollitia minima perspiciatis facere magni quaerat delectus. Magni, repellat perspiciatis.</div>
+            <div class="tab-content" id="about1"> amet consectetur adipisicing elit. Blanditiis et possimus nam sequi quia est neque quas totam eius molestiae perspiciatis deleniti, asperiores voluptatem voluptatum repudiandae laudantium iste voluptas eveniet.
+                Et in quo quam quibusdam culpa nulla ipsa id nam optio quidem? Unde aperiam, eveniet culpa nihil quaerat ipsam suscipit error nesciunt. Facere minus nulla delectus iusto perferendis. Velit, ut!
+            Necessitatibus dolores porro minima quis explicabo ad in dolorum corrupti repellendus saepe, tempora illo et voluptatem sint nobis blanditiis tenetur nam ut praesentium nisi numquam consequatur velit. Delectus, modi dolor.</div>
+        </div>
+    </div>
+
+    <script>
+
+       (function(){
+        var afficherOnglet = function(a){
+            var li = a.parentNode;
+                var div = a.parentNode.parentNode.parentNode;
+
+                if(li.classList.contains('active')){
+                    return false;
+                }
+                //on retire la active de l,onglet actif
+                div.querySelector('.tabs .active').classList.remove('active');
+                //on ajoute la class active a l,onglet actuel 
+                li.classList.add('active');
+
+                //on retire la classs active sur le contenu actif
+                div.querySelector('.tab-content.active').classList.remove('active');
+
+                //on ajoute class active sur le contenu correpondant a mon clic
+
+                div.querySelector(a.getAttribute('href')).classList.add('active');
+
+        }
+
+        var tabs = document.querySelectorAll('.tabs a');
+        for(var i=0; i < tabs.length; i++){
+            tabs[i].addEventListener('click', function(e){
+
+               afficherOnglet(this);
+
+            })
+        }
+
+        var hash = window.location.hash;
+        var a = document.querySelector('a[href="'+ hash +'"]');
+        if(a !== null && !a.parentNode.classList.contains('active')){
+                afficherOnglet(a)
+        } var afficherOnglet = function(a){
+            var li = a.parentNode;
+                var div = a.parentNode.parentNode.parentNode;
+
+                if(li.classList.contains('active')){
+                    return false;
+                }
+                //on retire la active de l,onglet actif
+                div.querySelector('.tabs .active').classList.remove('active');
+                //on ajoute la class active a l,onglet actuel 
+                li.classList.add('active');
+
+                //on retire la classs active sur le contenu actif
+                div.querySelector('.tab-content.active').classList.remove('active');
+
+                //on ajoute class active sur le contenu correpondant a mon clic
+
+                div.querySelector(a.getAttribute('href')).classList.add('active');
+
+        }
+
+        var tabs = document.querySelectorAll('.tabs a');
+        for(var i=0; i < tabs.length; i++){
+            tabs[i].addEventListener('click', function(e){
+
+               afficherOnglet(this);
+
+            })
+        }
+
+        var hash = window.location.hash;
+        var a = document.querySelector('a[href="'+ hash +'"]');
+        if(a !== null && !a.parentNode.classList.contains('active')){
+                afficherOnglet(a)
+        }
+       })();
+    </script>
+</body>
+</html>
