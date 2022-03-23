@@ -4,12 +4,16 @@ const body = document.querySelector('body'),
       searchBtn = body.querySelector(".search-box"),
       modeSwitch = body.querySelector(".toggle-switch"),
       modeText = body.querySelector(".mode-text");
+      home = body.querySelectorAll(".home, .home2, .home3, .home4, .home5, .home6");
       pp =  body.querySelector('.opaci')
 
 
 toggle.addEventListener("click" , () =>{
     sidebar.classList.toggle("close");
     pp.classList.toggle('opaci');
+    for (var i= 0; i< home.length; i++) {
+        home[i].classList.toggle("sidebar-close-home");
+    }
 })
 
 searchBtn.addEventListener("click" , () =>{
